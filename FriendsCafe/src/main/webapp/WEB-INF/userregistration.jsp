@@ -36,11 +36,12 @@ margin-left: auto;
 </head>
 <body>
 <h2 align="center">Registration</h2>
-<form:form action="Registration" method="post" modelAttribute="info"  onsubmit="return validateuserName()">
+<form:form action="Registration" method="post" modelAttribute="info"  >
 <div align="center">
 <p>
 <label for="fn"> First Name:</label>
 <form:input  id="fn" path="firstName"/>
+<form:errors path="firstName" cssClass="error"></form:errors>
 </p>
 
 <p> <label for="ln">Last Name:</label>
@@ -71,6 +72,8 @@ margin-left: auto;
 <p>
 <label for="em"> Email:</label>
 <form:input id="em" path="communicationdto.Email"/>
+<form:errors path="communicationdto.Email" cssClass="error"/>
+
 </p>
 
 <p>
