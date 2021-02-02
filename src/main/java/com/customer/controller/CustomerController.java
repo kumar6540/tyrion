@@ -21,8 +21,6 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerservice;
 	
-	
-	
 	@RequestMapping("/")
 	public String indexpage() {
 		return "index";

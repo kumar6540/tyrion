@@ -30,6 +30,8 @@ public class CustomerDaoImpl implements CustomerDao
 					case SortUtils.last_name:
 						theFieldName = "lastname";
 						break;
+						
+						
 					case SortUtils.email:
 						theFieldName = "email";
 						break;
