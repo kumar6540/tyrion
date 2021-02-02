@@ -21,10 +21,7 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerservice;
 	
-	@RequestMapping("/")
-	public String indexpage() {
-		return "index";
-	}
+	
 	
 	@RequestMapping("/list-customers")
 	public String listCustormer(Model model,@RequestParam(required=false) String sort) {
@@ -50,6 +47,11 @@ public class CustomerController {
 			
 		return "list-customers";
 		
+	}
+	
+	@RequestMapping("/")
+	public String indexpage() {
+		return "index";
 	}
 	
 	@GetMapping("/ShowFormForAdd")
