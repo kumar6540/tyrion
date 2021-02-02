@@ -129,8 +129,9 @@ public class ServletConfig implements WebMvcConfigurer {
 	
 	@Bean
 	public JdbcTemplate JdbcTemplate() {
-		 JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource());
-	        jdbcTemplate.setResultsMapCaseInsensitive(true);
+		 JdbcTemplate jdbcTemplate = new JdbcTemplate();
+	       jdbcTemplate.setDataSource(dataSource());
+		 jdbcTemplate.setResultsMapCaseInsensitive(true);
 	        return jdbcTemplate;
 		
 	}
