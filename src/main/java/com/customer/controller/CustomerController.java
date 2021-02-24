@@ -21,6 +21,18 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerservice;
 	
+	@GetMapping("/Showlogin")
+	public String showloginPage() {
+		return "fancy-login";
+		
+		
+	}
+	@GetMapping("/access-denied")
+	public String accessdeniedPage() {
+		return "access-denied";
+		
+		
+	}
 	
 	
 	@RequestMapping("/list-customers")

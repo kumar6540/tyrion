@@ -97,7 +97,14 @@
       <a href="list-customers">Back-to-list</a>
       
     </p>
+      <br><br>
       
+      			<!-- LogOut Button -->
+	<form:form action="${pageContext.request.contextPath}/logout" 
+						   method="POST" class="form-horizontal">
+
+<input type="submit" value="logout">
+      </form:form>
       </div>
       </div>
 
