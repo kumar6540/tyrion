@@ -10,7 +10,6 @@ import com.rest.RestApiServices.entity.Employee;
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
 	
-
 	
 	
 	List<Employee> findByFirstName(String firstName);
