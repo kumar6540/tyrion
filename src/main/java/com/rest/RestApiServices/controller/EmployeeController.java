@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rest.RestApiServices.entity.Employee;
@@ -55,9 +56,9 @@ public class EmployeeController {
 	public Employee saveEmployee(@RequestBody Employee employee) {
 		
 		
-		 employeeService.saveEmployee(employee);
+		return employeeService.saveEmployee(employee);
 
-		return employee;
+		
 	}
 	
 	@PutMapping("/updateEmployee")
@@ -69,6 +70,9 @@ public class EmployeeController {
 		return UEmployee;
 	
 	}
+	
+	
+	
 	
 	@DeleteMapping("/deleteEmployee/{EmpId}")
 	public String deletEmployee(@PathVariable int EmpId) {

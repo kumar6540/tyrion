@@ -55,21 +55,23 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 
 	@Transactional
-	public void saveEmployee(Employee employee) {
+	public Employee saveEmployee(Employee employee) {
 		
 		Employee emp = employeeRepository.save(employee);
-		
-		addressRepository.save(employee.getAddress());
-		
-		List<Knownlanguages> languages = new ArrayList<Knownlanguages>();
-		
-		for(Knownlanguages lang : languages) {
-			
-			languages.add(lang);
-		}
-		
-		knownlanguagesRepository.saveAll(languages);
+		/*
+		 * addressRepository.save(employee.getAddress());
+		 * 
+		 * List<Knownlanguages> languages = new ArrayList<Knownlanguages>();
+		 * 
+		 * for(Knownlanguages lang : languages) {
+		 * 
+		 * languages.add(lang); }
+		 * 
+		 * knownlanguagesRepository.saveAll(languages);
 	
+		 */
+		return emp;
+		
 	}
 
 
@@ -80,6 +82,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		
 		
 	}
+
 
 
 

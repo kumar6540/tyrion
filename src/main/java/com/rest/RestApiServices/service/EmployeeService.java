@@ -16,7 +16,9 @@ public interface EmployeeService {
 	
 	List<Employee> getByLastName(String lastName);
 	
-	void saveEmployee(Employee employee);
+	Employee saveEmployee(Employee employee);
 	
 	 void deletebyId(int EmpId) ;
+	 
+	 
 }
