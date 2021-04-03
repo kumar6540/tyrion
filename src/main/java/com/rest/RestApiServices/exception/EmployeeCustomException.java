@@ -8,4 +8,6 @@ public class EmployeeCustomException extends RuntimeException {
 		super(msg);
 	}
 
+	
+	
 }

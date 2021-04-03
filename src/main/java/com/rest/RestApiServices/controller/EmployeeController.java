@@ -54,7 +54,9 @@ public class EmployeeController {
 	
 	@PostMapping("/saveEmployee")
 	public Employee saveEmployee(@RequestBody Employee employee) {
-		
+		if(employee.getFirstName().isEmpty()||employee.getFirstName().length()==0) {
+			throw new EmployeeCustomException("Employee firstname is empty");
+		}
 		
 		return employeeService.saveEmployee(employee);
 
@@ -76,12 +78,9 @@ public class EmployeeController {
 	
 	@DeleteMapping("/deleteEmployee/{EmpId}")
 	public String deletEmployee(@PathVariable int EmpId) {
-		Employee tempEmp = employeeService.getEmployeeById(EmpId);
+	//	Employee tempEmp = employeeService.getEmployeeById(EmpId);
 		
-		if(tempEmp==null) {
-			throw new EmployeeCustomException("Employee id not found:"+ EmpId);
-		}
-		
+  
 		employeeService.deletebyId(EmpId);
 		
 		return "Employee is deleted with id:"+ EmpId;

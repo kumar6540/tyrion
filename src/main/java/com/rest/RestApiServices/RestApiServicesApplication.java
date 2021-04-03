@@ -7,8 +7,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan({"com.rest.RestApiServices.service","com.rest.RestApiServices.controller","com.rest.RestApiServices.entity"})
-@EntityScan("com.rest.RestApiServices.entity")
+//@ComponentScan({"com.rest.RestApiServices.service","com.rest.RestApiServices.controller","com.rest.RestApiServices.entity"})
+//@EntityScan("com.rest.RestApiServices.entity")
 @EnableJpaRepositories
 public class RestApiServicesApplication {
 

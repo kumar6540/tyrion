@@ -1,5 +1,6 @@
 package com.rest.RestApiServices.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,6 +16,12 @@ import javax.persistence.Table;
 
 import org.springframework.lang.NonNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import javassist.SerialVersionUID;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +33,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name="employee")
-public class Employee {
+@JsonSerialize
+public class Employee implements Serializable {
+
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,12 +58,12 @@ public class Employee {
 	@Column(name = "email")
 	private String email;
 	
-	@OneToOne(  cascade =  CascadeType.ALL)
-	@JoinColumn(name="address_id")
+	@OneToOne(targetEntity = Address.class,  cascade =  CascadeType.ALL)
 	private Address address;
 
 	@OneToMany(cascade =   CascadeType.ALL)
 	@JoinColumn(name="employee_id")
+	@JsonManagedReference
 	private List<Knownlanguages> language;
 	
 }

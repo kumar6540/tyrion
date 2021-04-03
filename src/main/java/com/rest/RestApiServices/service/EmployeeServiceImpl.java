@@ -1,15 +1,14 @@
 package com.rest.RestApiServices.service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.rest.RestApiServices.entity.Address;
 import com.rest.RestApiServices.entity.Employee;
-import com.rest.RestApiServices.entity.Knownlanguages;
+import com.rest.RestApiServices.exception.EmployeeCustomException;
 import com.rest.RestApiServices.repository.AddressRepository;
 import com.rest.RestApiServices.repository.EmployeeRepository;
 import com.rest.RestApiServices.repository.KnownlanguagesRepository;
@@ -77,8 +76,22 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Transactional
 	public void deletebyId(int EmpId) {
+		
 	
-		employeeRepository.deleteById(EmpId);
+		try {
+			Employee findById = employeeRepository.findById(EmpId).get();
+		}catch (NoSuchElementException e) {
+			throw new EmployeeCustomException("Employee with id: "+EmpId+"Not found in DB");
+		
+		} 		
+		catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	
+			employeeRepository.deleteById(EmpId);
+		
 		
 		
 	}
