@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+
+<head>
+   <meta charset="ISO-8859-1" >
+    <title>Product Create Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.css}">
+</head>
+<body>
+<div class="container text-center">
+<div th:if="${brand.id==null}"><h2>New Brand Form </h2>
+<div th:unless="${brand.id==null}">Edit Brand </div>
+</div>
+
+<div>
+        <form action="#" th:action="@{/Brands/save}" th:object="${brand}" method="post"
+        style=" max-width: 600px;margin: 0 auto" >
+       <input type="hidden" th:field="*{id}" th:value=${brand.id}/>
+        <div class = "m-3">
+        <div class = "form-group row ">
+            <label class ="col-form-label col-sm-4"> Brand Name :</label>
+          
+          <input type="text" th:field="*{name}" class="form-control" required="required">
+          </div>
+         
+          <div class="form-group row">
+            <label class ="col-form-label col-sm-4"> Choose one or More Categories:</label>
+            <select th:field="*{categories}" class="form-control" multiple="multiple" required="required">
+            <th:block th:each="cat : ${catlist}">
+            <option th:text="${cat.name}" th:value="${cat.id}">
+            </th:block>
+             </select>
+               
+
+
+          </div>
+          
+          
+          <div class ="text-center p-3" >
+          <button  type="submit"  class="btn btn-info col-2">Save</button>
+          </div>
+        </div>
+         </form>
+</div>
+
+
+      <p>
+      <a th:href="@{/products}">Back-to-ProductList</a>
+      
+    </p>
+
+      <p>
+      <a th:href="@{/}">Back-to-HomePage</a>
+      
+    </p>
+
+</div>
+</body>
+</html>

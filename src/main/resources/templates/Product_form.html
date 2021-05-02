@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+
+<head>
+   <meta charset="ISO-8859-1" >
+    <title>Product Create Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.css}">
+</head>
+<body>
+<div class="container text-center">
+<div th:if="${product.id == 0}"><h2>New Product Form </h2></div>
+<div th:unless="${product.id == 0 }"><h2>Edit Product</h2> </div>
+
+
+
+        <form action="#" th:action="@{/products/save}" th:object="${product}" method="post"
+        style=" max-width: 600px;margin: 0 auto" >
+       <input type="hidden" th:field="*{id}" th:value=${product.id}/>
+        <div class = "m-3">
+        <div class = "form-group row ">
+            <label class ="col-form-label col-sm-4"> Product Name :</label>
+          
+          <input type="text" th:field="*{name}" class="form-control" required="required">
+          </div>
+          <div class="form-group row">
+            <label class ="col-form-label col-sm-4"> Product price :</label>
+               <input type="text" step="0.1" th:field="*{price}" class="form-control" required="required">
+          </div>
+          <div class="form-group row">
+            <label class ="col-form-label col-sm-4"> Category :</label>
+            <select th:field="*{category}" class="form-control" required="required">
+            <th:block th:each="cat : ${listCategories}">
+            <option th:text="${cat.name}" th:value="${cat.id}">
+            </th:block>
+             </select>
+             </div>
+      
+         
+                    
+          <div class ="text-center p-3" >
+          <button  type="submit"  class="btn btn-info col-2">Save</button>
+          </div>
+        </div>
+         </form>
+
+
+
+      <p align="center">
+      <a   th:href="@{/products}">Back-to-ProductList</a>
+      
+    </p>
+
+      <p align="center">
+      <a th:href="@{/}">Back-to-HomePage</a>
+      
+    </p>
+
+</div>
+</body>
+</html>

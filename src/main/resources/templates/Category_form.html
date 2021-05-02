@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+
+<head>
+   <meta charset="ISO-8859-1" >
+    <title>Inventory Home Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.css}">
+</head>
+<body>
+<div class="container text-center">
+
+<div>
+        <form action="#" th:action="@{/categories/save}" th:object="${category}" method="post"
+        style=" max-width: 600px;margin: 0 auto">
+       
+        <div class = "m-3">
+        <div class = "form-group row ">
+            <label class ="col-form-label"> Category Name :</label>
+          </div>
+          <div>
+          <input type="text" th:field="*{name}" class="form-control" required="required">
+          </div>
+          <div>
+          <button  type="submit"  class="btn btn-info col-2">Save</button>
+          </div>
+    
+     
+        
+        
+        </div>
+         </form>
+</div>
+
+
+      <p>
+      <a th:href="@{/catagories}">Back-to-CategoryList</a>
+      
+    </p>
+
+      <p>
+      <a th:href="@{/}">Back-to-HomePage</a>
+      
+    </p>
+
+</div>
+</body>
+</html>
